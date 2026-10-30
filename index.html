@@ -1,11 +1,112 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Studio Uploader</title>
-<style>body{font-family:system-ui,sans-serif;max-width:720px;margin:40px auto;padding:0 20px;line-height:1.6;color:#222}a{color:#0b57d0}</style></head>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Studio Uploader — publishing pipeline for independent YouTube channels</title>
+<meta name="description" content="Studio Uploader is a private publishing tool that delivers finished videos, thumbnails, translations and captions to its owner's YouTube channels.">
+<style>
+  :root{--bg:#0b0d12;--panel:#141821;--line:#232a36;--text:#e8ecf3;--muted:#9aa4b5;--accent:#ff4d5e;--accent2:#ffb347}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+  a{color:inherit}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+  header{display:flex;align-items:center;justify-content:space-between;padding:22px 0}
+  .logo{display:flex;align-items:center;gap:10px;font-weight:700;letter-spacing:.2px}
+  .logo i{width:30px;height:30px;border-radius:8px;background:linear-gradient(135deg,var(--accent),var(--accent2));display:grid;place-items:center}
+  .logo i:after{content:"";border-left:10px solid #fff;border-top:6px solid transparent;border-bottom:6px solid transparent;margin-left:3px}
+  nav a{color:var(--muted);text-decoration:none;margin-left:22px;font-size:15px}
+  nav a:hover{color:var(--text)}
+  .hero{padding:90px 0 70px;text-align:center;position:relative}
+  .hero:before{content:"";position:absolute;inset:-40px 0 auto;height:420px;z-index:-1;
+    background:radial-gradient(600px 260px at 50% 30%,rgba(255,77,94,.22),transparent 70%),radial-gradient(500px 220px at 70% 60%,rgba(255,179,71,.14),transparent 70%)}
+  .tag{display:inline-block;font-size:13px;color:var(--accent2);border:1px solid #3a2f22;background:#1a1510;padding:5px 12px;border-radius:999px;margin-bottom:22px}
+  h1{font-size:clamp(34px,5.4vw,58px);line-height:1.08;letter-spacing:-1px;max-width:820px;margin:0 auto}
+  h1 span{background:linear-gradient(90deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .lead{color:var(--muted);font-size:19px;max-width:640px;margin:22px auto 0}
+  .flow{display:flex;justify-content:center;flex-wrap:wrap;gap:10px;margin-top:44px}
+  .flow div{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:10px 16px;font-size:14px;color:var(--muted)}
+  .flow b{color:var(--text);font-weight:600}
+  .flow em{color:var(--accent);font-style:normal;align-self:center}
+  section{padding:70px 0;border-top:1px solid var(--line)}
+  h2{font-size:30px;letter-spacing:-.5px;margin-bottom:10px}
+  .sub{color:var(--muted);max-width:620px;margin-bottom:36px}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:24px}
+  .card .ic{font-size:24px;margin-bottom:12px}
+  .card h3{font-size:17px;margin-bottom:6px}
+  .card p{color:var(--muted);font-size:15px}
+  .split{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:start}
+  @media(max-width:760px){.split{grid-template-columns:1fr}nav{display:none}}
+  ul.check{list-style:none}
+  ul.check li{padding:10px 0 10px 30px;position:relative;color:var(--muted);border-bottom:1px solid var(--line)}
+  ul.check li:before{content:"✓";position:absolute;left:0;color:var(--accent2);font-weight:700}
+  ul.check li b{color:var(--text);font-weight:600}
+  .note{background:linear-gradient(180deg,#171b25,#12151c);border:1px solid var(--line);border-radius:16px;padding:28px}
+  .note p{color:var(--muted);margin-top:8px}
+  footer{border-top:1px solid var(--line);padding:30px 0 50px;color:var(--muted);font-size:14px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+  footer a{color:var(--muted);margin-left:18px}
+  footer a:hover{color:var(--text)}
+</style>
+</head>
 <body>
-<h1>Studio Uploader</h1>
-<p>Studio Uploader is a private, single-user tool. Its owner uses it to upload videos, thumbnails, titles, descriptions, translations and captions to the owner's own YouTube channels through the YouTube Data API.</p>
-<p>It is not a public service: no one else can sign up, and it does not access anyone else's channels or data.</p>
-<p><a href="privacy.html">Privacy Policy</a> · <a href="terms.html">Terms of Service</a></p>
-<p>Contact: silverenio@gmail.com</p>
-</body></html>
+<div class="wrap">
+  <header>
+    <div class="logo"><i></i>Studio Uploader</div>
+    <nav><a href="#features">Features</a><a href="#data">Your data</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a></nav>
+  </header>
+
+  <div class="hero">
+    <div class="tag">Private publishing tool · YouTube Data API</div>
+    <h1>From finished cut to <span>published video</span> in one step</h1>
+    <p class="lead">Studio Uploader delivers finished videos to an independent studio's own YouTube channels, with thumbnails, playlists, translations and captions, at full quality and on schedule.</p>
+    <div class="flow">
+      <div><b>Edit</b> · final master</div><em>→</em>
+      <div><b>Package</b> · title, tags, thumbnail</div><em>→</em>
+      <div><b>Localize</b> · titles &amp; captions</div><em>→</em>
+      <div><b>Publish</b> · now or scheduled</div>
+    </div>
+  </div>
+</div>
+
+<section id="features">
+  <div class="wrap">
+    <h2>What it does</h2>
+    <p class="sub">One small command-line tool replaces dozens of manual clicks in YouTube Studio for every release across several channels.</p>
+    <div class="grid">
+      <div class="card"><div class="ic">⬆️</div><h3>Full-quality uploads</h3><p>Original masters go straight to YouTube, with no browser size limits and no re-compression before upload.</p></div>
+      <div class="card"><div class="ic">🗓️</div><h3>Scheduling</h3><p>Releases go out privately, unlisted, public, or at a set time in the channel's time zone.</p></div>
+      <div class="card"><div class="ic">🖼️</div><h3>Thumbnails &amp; playlists</h3><p>Custom thumbnails and playlist placement are applied as part of the same release.</p></div>
+      <div class="card"><div class="ic">🌍</div><h3>Localization</h3><p>Translated titles and descriptions plus caption tracks in several languages reach viewers worldwide.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="data">
+  <div class="wrap split">
+    <div>
+      <h2>Built for one owner</h2>
+      <p class="sub">Studio Uploader is not a public service. Only its owner uses it, to manage the owner's own channels.</p>
+      <div class="note">
+        <h3>Revoke access at any time</h3>
+        <p>Access can be removed in one click at <a href="https://myaccount.google.com/permissions">myaccount.google.com/permissions</a>.</p>
+      </div>
+    </div>
+    <ul class="check">
+      <li><b>Minimal access.</b> It only uploads and edits videos and reads the channel name to confirm the right channel.</li>
+      <li><b>Stays local.</b> Sign-in tokens are kept only on the owner's computer.</li>
+      <li><b>No sharing.</b> No data is sold, shared, or used for advertising.</li>
+      <li><b>Google policy.</b> It complies with the Google API Services User Data Policy, including Limited Use.</li>
+      <li><b>YouTube terms.</b> It uses YouTube API Services under the YouTube Terms of Service.</li>
+    </ul>
+  </div>
+</section>
+
+<div class="wrap">
+  <footer>
+    <span>© 2026 Studio Uploader · silverenio@gmail.com</span>
+    <span><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Service</a><a href="https://www.youtube.com/t/terms">YouTube Terms</a></span>
+  </footer>
+</div>
+</body>
+</html>
